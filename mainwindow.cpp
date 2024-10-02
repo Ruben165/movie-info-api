@@ -59,11 +59,11 @@ void MainWindow::on_pushButtonSearch_clicked() {
         QMessageBox::warning(this, "Input Error!", "Please Input Movie Title!"); return;
     } else {
         // if movie_title actually has text, then initiate the request to the API
-        QString api_key = "2a9fc341"; // this is an API key
+        QString api_key = "your-api-key"; // this is where you should put your api key
         QString req_url = QString("http://www.omdbapi.com/?t=%1&apikey=%2").arg(movie_title, api_key); // here, we set up the link for the request and insert the movie_title and the api_key as paramater in the link
         // pay attention to the placement of %1 and %2 (t for movie title, apikey obviously for the API key)
         // since this app only search for movies/series/shows/etc based on title
-        // API keys are unique from one user to another, mine is the free version, so it has limitations (up to 1000 request daily and others...)
+        // API keys are unique from one user to another
 
         // This line actually sends the request to the web service and gets the content of the request
         networkManager_ptr->get(QNetworkRequest(QUrl(req_url)));
